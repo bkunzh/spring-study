@@ -33,6 +33,7 @@
     - 在application.properties文件中通过spring.profiles.active属性来设置，其值对应{profile}值，如：spring.profiles.active=dev就会加载application-dev.properties配置文件内容
     - 可以在运行jar文件的时候使用命令`java -jar xxx.jar --spring.profiles.active={profile}`切换不同的环境配置
 
+3. 
 
 ## 99. 参考资料
 > <https://github.com/bkunzhang/springall-study-test>(fork from <https://github.com/wuyouzhuguli/SpringAll>)
