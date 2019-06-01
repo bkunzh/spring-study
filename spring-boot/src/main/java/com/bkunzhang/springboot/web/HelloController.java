@@ -26,7 +26,7 @@ public class HelloController {
     private Environment env;
 
     @RequestMapping("/getWeather")
-    public RequestAndResponse getWeather(@RequestHeader Map<String, Object> headers, @RequestBody Map<String, Object> bodys) {
+    public RequestAndResponse getWeather(@RequestHeader Map<String, Object> headers, @RequestBody(required = false) Map<String, Object> bodys) {
         logger.info("HelloController getWeather headers={}, bodys={}", headers, bodys);
         if (!Objects.equals(headers.get(CommonConstant.KEY_AUTHORIZATION), env.getProperty("getWeather.authorization"))) {
             return null;
