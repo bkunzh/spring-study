@@ -30,10 +30,10 @@ public class HelloController {
 
     @ApiOperation("获取天气")
     @RequestMapping("/getWeather")
-    public RequestAndResponse getWeather(@RequestHeader Map<String, Object> headers, @RequestBody(required = false) Map<String, Object> bodys) {
+    public Object getWeather(@RequestHeader Map<String, Object> headers, @RequestBody(required = false) Map<String, Object> bodys) {
         logger.info("HelloController getWeather headers={}, bodys={}", headers, bodys);
         if (!Objects.equals(headers.get(CommonConstant.KEY_AUTHORIZATION), env.getProperty("getWeather.authorization"))) {
-            return null;
+            return "authorization error";
         }
         Weather weather = new Weather(new Date(), "多云", 29.8);
         return new RequestAndResponse(new Request(headers, bodys), weather);
