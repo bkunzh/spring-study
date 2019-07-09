@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.Map;
 import java.util.Objects;
@@ -30,7 +31,7 @@ public class HelloController {
 
     @ApiOperation("获取天气")
     @RequestMapping("/getWeather")
-    public Object getWeather(@RequestHeader Map<String, Object> headers, @RequestBody(required = false) Map<String, Object> bodys) {
+    public Object getWeather(@RequestHeader Map<String, Object> headers, @RequestBody(required = false) Map<String, Object> bodys, HttpServletRequest request) {
         logger.info("HelloController getWeather headers={}, bodys={}", headers, bodys);
         if (!Objects.equals(headers.get(CommonConstant.KEY_AUTHORIZATION), env.getProperty("getWeather.authorization"))) {
             return "authorization error";
