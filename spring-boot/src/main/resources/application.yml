@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost/springboot?useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: root
+
+

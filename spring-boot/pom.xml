@@ -51,11 +51,13 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
+
+		<!--todo 内嵌数据库怎么玩？-->
+		<!--<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
-		</dependency>
+		</dependency>-->
 
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
@@ -97,6 +99,10 @@
 			<version>${hutool-all.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
 
 	</dependencies>
 
