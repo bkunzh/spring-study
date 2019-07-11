@@ -2,6 +2,8 @@ package com.bkunzhang.springboot.util;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
 
@@ -17,6 +19,9 @@ public class DateUtilTest {
     LocalDate  localDate1;
     LocalDate localDate2;
 
+    static Logger log = LoggerFactory.getLogger(DateUtilTest.class);
+    static Logger log2 = LoggerFactory.getLogger("log_name");
+
     @Before
     public void before() {
         dateStr1 = "2019-02-26";
@@ -28,6 +33,9 @@ public class DateUtilTest {
     @Test
     public void getDistanceOfTwoDate() throws Exception {
         assertEquals(35L, DateUtil.getDistanceOfTwoDate(localDate1, localDate2));
+        log.info("DateUtilTest getDistanceOfTwoDate yes 2");
+        log.info("log_name={}", log.getName());
+        log2.info("ok log2");
     }
 
     @Test
