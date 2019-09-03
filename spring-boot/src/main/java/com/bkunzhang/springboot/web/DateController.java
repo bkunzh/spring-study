@@ -1,8 +1,6 @@
 package com.bkunzhang.springboot.web;
 
 import com.bkunzhang.springboot.util.DateUtil;
-import org.junit.Assert;
-import org.junit.Test;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
