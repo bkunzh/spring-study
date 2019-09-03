@@ -3,19 +3,19 @@
     <appender name="FILE" class="ch.qos.logback.core.FileAppender">
         <file>g:/log/test.log</file>
         <encoder>
-            <pattern>%date %level [%thread] %logger{50} [%file:%line] %msg%n</pattern>
+            <pattern>%date %level [%thread] %logger{50} \(%file:%line\) %msg%n</pattern>
         </encoder>
     </appender>
 
     <appender name="FILE2" class="ch.qos.logback.core.FileAppender">
         <file>g:/log/test22.log</file>
         <encoder>
-            <pattern>%date %level [%thread] %logger{50} [%file:%line] %msg%n</pattern>
+            <pattern>%date %level [%thread] %logger{50} \(%file:%line\) %msg%n</pattern>
         </encoder>
     </appender>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%msg%n</pattern>
+            <pattern>%date %level [%thread] %logger{50} \(%file:%line\) %msg%n</pattern>
         </encoder>
     </appender>
 
@@ -25,9 +25,9 @@
     </root>
 
 
-    <!-- 精确设置每个包下面的日志 -->
+    <!-- 精确设置每个包下面的日志 additivity="false"，这里输出了，不在rootLogger输出-->
     <logger name="com.bkunzhang.springboot.util" additivity="false">
-        <level value="info" />
+        <level value="debug" />
         <appender-ref ref="FILE2" />
         <appender-ref ref="STDOUT" />
     </logger>
