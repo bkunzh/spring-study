@@ -25,7 +25,10 @@
     </root>
 
 
-    <!-- 精确设置每个包下面的日志 additivity="false"，这里输出了，不在rootLogger输出-->
+    <!-- 精确设置每个包下面的日志
+    若是additivity设为false，则子Logger只会在自己的appender里输出，不会在root的logger的appender里输出；
+    若是additivity设为true，则子Logger不止会在自己的appender里输出，还会在root的logger的appender里输出，
+    因为这两个Logger都设置STDOUT，若是additivity设为true，匹配这个logger的日志会在控制台打印2遍日志 -->
     <logger name="com.bkunzhang.springboot.util" additivity="false">
         <level value="debug" />
         <appender-ref ref="FILE2" />
