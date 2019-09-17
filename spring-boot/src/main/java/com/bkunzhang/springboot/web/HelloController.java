@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
@@ -28,6 +29,15 @@ public class HelloController {
 
     @Autowired
     private Environment env;
+
+    @ApiOperation("test1")
+    @RequestMapping("/test1/{number:.+}")
+    public Object test(@PathVariable String number, @PathVariable("number") String number2) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("number", number);
+        map.put("number2", number2);
+        return map;
+    }
 
     @ApiOperation("获取天气")
     @RequestMapping("/getWeather")
