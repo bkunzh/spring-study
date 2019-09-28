@@ -1,4 +1,4 @@
-package com.bkunzhang.springboot.util;
+package com.bkunzhang.springboot.log;
 
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -9,13 +9,14 @@ import org.slf4j.LoggerFactory;
  */
 public class LogbackTest {
     static Logger log = LoggerFactory.getLogger(LogbackTest.class);
-    static Logger log2 = LoggerFactory.getLogger("log_name");
+    static Logger log2 = LoggerFactory.getLogger("xx"); //rootLogger
 
     @Test
     public void t() {
-        log.info("log_name={}", log.getName());
-        log2.info("ok log2");
-        log2.debug("debug info 222");
-        log.debug("debug info 111111111");
+        log.info("log info");
+        log.debug("log debug");
+
+        log2.info("log2.info");
+        log2.debug("log2.debug");
     }
 }
