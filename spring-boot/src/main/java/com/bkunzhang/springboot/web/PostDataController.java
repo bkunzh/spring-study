@@ -2,6 +2,7 @@ package com.bkunzhang.springboot.web;
 
 import lombok.Data;
 import lombok.ToString;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -44,9 +45,18 @@ public class PostDataController {
         }
     }
 
+    //request: Content-Type: application/json {"name":"tom","age":22,"other":"abcde"}
     @RequestMapping("/postData")
-    public String postData(@RequestParam String name, Request request) {
+    public String postData(@RequestParam(required = false) String name,
+                           Request request2, @RequestBody Request request) { //request2 from param, request from request body
         System.out.println(request);
+        return "Happy every day!";
+    }
+
+    //request: Content-Type: application/x-www-form-urlencoded; charset=UTF-8  name=tom&age=22&other=abcde
+    @RequestMapping("/postData2")
+    public String postData(Request request2) { //request2 from param, request from request body
+        System.out.println(request2);
         return "Happy every day!";
     }
 
