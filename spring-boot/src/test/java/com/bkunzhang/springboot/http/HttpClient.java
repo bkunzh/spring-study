@@ -37,7 +37,7 @@ public class HttpClient {
         mapHeaders.put("authorization", "j2@j#jalahieruza");
 //        HttpResponse httpResponse = httpGet("http://localhost:9999/getWeather?a=haha", mapHeaders);
 //        System.out.println(httpResponse.toString());
-        HttpResponse httpResponse2 = httpPost("http://localhost:9999/getWeather?a=haha", mapHeaders, "{\"a\": \"11\"}");
+        HttpResponse httpResponse2 = httpPost("http://localhost:9998/getWeather?a=haha", mapHeaders, "{\"a\": \"11\"}");
         System.out.println(httpResponse2.toString());
     }
 

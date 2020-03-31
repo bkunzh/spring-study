@@ -22,7 +22,7 @@ public class RestTemplateTest {
     @Test
     public void rest() {
         for (int i=0; i<5; ++i) {
-            ResponseEntity responseEntity = restTemplate.exchange("http://localhost:9999/getJoke", HttpMethod.GET, null, String.class);
+            ResponseEntity responseEntity = restTemplate.exchange("http://localhost:9998/getJoke", HttpMethod.GET, null, String.class);
             System.out.println(responseEntity);
             System.out.println(responseEntity.getBody());
         }
