@@ -112,10 +112,35 @@
 			<version>2.6</version>
 		</dependency>
 
+		<dependency>
+			<groupId>cn.hutool</groupId>
+			<artifactId>hutool-all</artifactId>
+			<version>5.3.1</version>
+		</dependency>
+
 
 	</dependencies>
 
 	<build>
+		<testResources>
+			<testResource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.json</include>
+					<include>**/*.txt</include>
+					<include>**/*</include>
+				</includes>
+			</testResource>
+		</testResources>
+		<resources>
+			<resource>
+				<directory>src/test/java</directory>
+				<includes>
+					<include>**/*.json</include>
+					<include>**/*.txt</include>
+				</includes>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
