@@ -11,7 +11,9 @@
 	<groupId>com.bkunzhang</groupId>
 	<artifactId>spring-boot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+<!--
 	<packaging>war</packaging>
+-->
 	<name>spring-boot</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -118,10 +120,34 @@
 			<version>2.6</version>
 		</dependency>
 
+		<dependency>
+			<groupId>cn.hutool</groupId>
+			<artifactId>hutool-all</artifactId>
+			<version>5.3.1</version>
+		</dependency>
+
 
 	</dependencies>
 
 	<build>
+		<testResources>
+			<testResource>
+				<directory>src/test/java</directory>
+				<includes>
+					<include>**/*.json</include>
+					<include>**/*.txt</include>
+				</includes>
+			</testResource>
+		</testResources>
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.json</include>
+					<include>**/*.txt</include>
+				</includes>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
