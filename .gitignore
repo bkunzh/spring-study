@@ -3,3 +3,4 @@
 *.iml
 out/
 
+/spring-boot/src/main/resources/static/dropload/.idea/misc.xml
