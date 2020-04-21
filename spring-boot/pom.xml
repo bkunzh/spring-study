@@ -124,17 +124,16 @@
 	<build>
 		<testResources>
 			<testResource>
-				<directory>src/main/java</directory>
+				<directory>src/test/java</directory>
 				<includes>
 					<include>**/*.json</include>
 					<include>**/*.txt</include>
-					<include>**/*</include>
 				</includes>
 			</testResource>
 		</testResources>
 		<resources>
 			<resource>
-				<directory>src/test/java</directory>
+				<directory>src/main/java</directory>
 				<includes>
 					<include>**/*.json</include>
 					<include>**/*.txt</include>
