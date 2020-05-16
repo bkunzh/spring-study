@@ -1,11 +1,4 @@
-目录
-<!-- TOC -->
 
-- [1. spring boot注解](#1-spring-boot注解)
-- [2. spring boot学习知识点](#2-spring-boot学习知识点)
-- [99. 参考资料](#99-参考资料)
-
-<!-- /TOC -->
 ## 1. spring boot注解
 - SpringBootApplication
 - EnableConfigurationProperties
@@ -32,8 +25,16 @@
     > 多环境配置文件必须以application-{profile}.properties的格式命名，其中{profile}为环境标识，比如application-dev.properties、application-prod.properties
     - 在application.properties文件中通过spring.profiles.active属性来设置，其值对应{profile}值，如：spring.profiles.active=dev就会加载application-dev.properties配置文件内容
     - 可以在运行jar文件的时候使用命令`java -jar xxx.jar --spring.profiles.active={profile}`切换不同的环境配置
-
-3. 
+## 3. spring boot生成可执行jar
+在pom.xml中加入
+```
+    <!-- 生成spring-boot可执行jar包 -->
+    <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+    </plugin>
+```
+再执行mvn package即可
 
 ## 99. 参考资料
 > <https://github.com/bkunzhang/springall-study-test>(fork from <https://github.com/wuyouzhuguli/SpringAll>)

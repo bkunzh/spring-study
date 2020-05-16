@@ -14,8 +14,9 @@
 
 	<modules>
 		<module>spring-boot/</module>
-		<module>spring-security</module>
-	</modules>
+<!--		<module>spring-security</module>-->
+        <module>web-test</module>
+    </modules>
 
 	<build>
 		<plugins>
