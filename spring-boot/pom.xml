@@ -158,6 +158,11 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
+			<!-- 生成spring-boot可执行jar包 -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
 		</plugins>
 	</build>
 
