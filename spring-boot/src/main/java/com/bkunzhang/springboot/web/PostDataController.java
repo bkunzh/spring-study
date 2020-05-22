@@ -60,15 +60,4 @@ public class PostDataController {
         return "Happy every day!";
     }
 
-    @RequestMapping("/postFile")
-    public String postFile(@RequestParam("file1") MultipartFile file, @RequestParam Map<String, Object> map) throws IOException {
-        if (file.isEmpty()) {
-            return "file not find";
-        }
-        System.out.println(file.getOriginalFilename());
-        System.out.println("map=" + map);
-        String filePath = "d:/t/";
-        file.transferTo(new File(filePath + file.getOriginalFilename()));
-        return "yes";
-    }
 }

@@ -117,6 +117,8 @@ $(function(){
     // 每页展示5个
     var size = 5;
 
+    var preUrl = location.protocol + '//' + location.hostname + ':9998';
+
     // dropload
     $('.content').dropload({
         scrollArea : window,
@@ -126,7 +128,7 @@ $(function(){
             var result = '';
             $.ajax({
                 type: 'GET',
-                url: 'http://localhost:9998/pageMore?page='+page+'&size='+size,
+                url: preUrl + '/pageMore?page='+page+'&size='+size,
                 dataType: 'json',
                 success: function(data){
                     console.log(data)
