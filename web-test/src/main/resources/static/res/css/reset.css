@@ -1,0 +1,329 @@
+@charset "UTF-8";
+html, :root{
+	width: 100%;
+	height: 100%;
+	font-size: 10px;
+}
+body,div,ul,li,p,dl,dt,span,a,h1,h2,h3,h4,h5,h6,img,input,button,textarea,label{
+	padding: 0;
+	margin: 0;
+	font: normal 100% "微软雅黑", "宋体", tahoma, arial, sans-serif;
+	appearance: none;
+	/*-webkit-appearance:none;*/
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	outline: none;
+}
+button{
+	background: none;
+	border: none;
+}
+img{
+	border: none;
+}
+body{
+	word-wrap: break-word;
+	word-break: normal; 
+	font: normal 100% "微软雅黑", "宋体", tahoma, arial, sans-serif;
+	font-size: 16px;
+	color: #444;
+	/*-webkit-user-select:none;*/
+	background: #E9ECF1;
+}
+ul{
+	list-style-type: none;
+}
+input,textarea{
+	appearance:none;
+	/*-webkit-appearance:none;*/
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	border: none;
+}
+[class*="btn-"]:active{
+	opacity: .7;
+}
+.clearfix{
+	zoom: 1;
+}
+.clearfix::after{
+	content: '';
+	clear: both;
+	height: 0;
+	visibility: hidden;
+	display: block;
+}
+.ellipsis{
+	text-overflow: ellipsis;
+    overflow: hidden;
+    white-space:nowrap;
+}
+
+/*------------------ 按钮组start -----------------*/
+.group-btn{
+	width: 100%;
+	border-top: 1px solid #ddd;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	background-color: #fff;
+	text-align: center;
+	z-index: 2;
+}
+
+.group-btn button, .group-btn a{
+	color: #3cbaff;
+	line-height: 4rem;
+	display: block;
+	float: left;
+	position: relative;
+	width: 50%;
+	font-size: 1.8rem;
+}
+
+.group-btn .btn-no{
+  	color: #999;
+}
+
+.group-btn .btn-yes:before{
+	content: '';
+	display: block;
+	height: 40%;
+	border-left: 1px solid #ddd;
+	position: absolute;
+	vertical-align: middle;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+}
+
+.group-btn .btn-full-w{
+	width: 100%;
+}
+/*------------------ 按钮组end -----------------*/
+
+#userinfo-ps{
+	position: fixed;
+	margin: auto;
+	top: 45%;
+	left: 27%;
+	background: rgba(0, 0, 0, 0.7);
+	border-radius: 4px;
+	width: 40%;
+	text-align: center;
+	color: #fff;
+	line-height: 24px;
+	display: none;
+	z-index: 1000;
+	padding: 3%;
+}
+
+/* 朦层 */
+.overlayer{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	background: rgba(0, 0, 0, .6);
+	z-index: 10;
+	display: none;
+}
+.mont-layer{
+	display: none;
+	position: fixed;
+	background: rgba(0,0,0,0.6);
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+}
+.screen{
+	position: absolute;
+	top: 0;
+	left: 0;
+	text-align:center;
+	padding:2.5%;
+}
+.screen img{
+	width:100%;
+}
+.close-tip{
+	font-size: 1.1em;
+	color: #404040;
+	padding: 0.5em 1em;
+	opacity: 1;
+	background: #fff;
+	border: 0px;
+	border-radius: 4px;
+	margin-top: 2em;
+	-webkit-appearance: none;
+}
+.arrow{
+    width: 0;
+    height: 0;
+    border-left: 6.5rem solid transparent;
+    border-top: 3.2rem solid #ccc;
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.grey {
+  	color: #aaa;
+}
+
+.none{
+	display: none;
+}
+
+.loading{
+	width: 10rem;
+	height: 10rem;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin-left: -5rem;
+	margin-top: -5rem;
+	z-index: 2000;
+	display: none;
+}
+
+.vertical-middle{
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+.loading .circle-container{
+	width: 3rem;
+	height: 3rem;
+}
+.loading .container2{
+	-webkit-transform: rotateZ(45deg);
+			transform: rotateZ(45deg);
+}
+.loading .circle-container div{
+	width: .8rem;
+	height: .8rem;
+	border-radius: 100%;
+	background: #2FA1E8;
+	position: absolute;
+	-webkit-animation: loading 1s linear infinite;
+			animation: loading 1s ease-in-out infinite;
+}
+
+.loading .circle1{top: 0; left: 0;}
+.loading .circle2{top: 0; right: 0; }
+.loading .circle3{bottom: 0; right: 0;}
+.loading .circle4{bottom: 0; left: 0; }
+
+
+.loading .container1 .circle1{
+	-webkit-animation-delay: -1s;
+			animation-delay: -.9s;
+}
+.loading .container2 .circle1{
+	-webkit-animation-delay: -.875s;
+			animation-delay: -.8s;
+}
+.loading .container1 .circle2{
+	-webkit-animation-delay: -.75s;
+			animation-delay: -.7s;
+}
+.loading .container2 .circle2{
+	-webkit-animation-delay: -.625s;
+			animation-delay: -.6s;
+}
+.loading .container1 .circle3{
+	-webkit-animation-delay: -.5s;
+			animation-delay: -.5s;
+}
+.loading .container2 .circle3{
+	-webkit-animation-delay: -.375s;
+			animation-delay: -.4s;
+}
+.loading .container1 .circle4{
+	-webkit-animation-delay: -.25s;
+			animation-delay: -.3s;
+}
+.loading .container2 .circle4{
+	-webkit-animation-delay: -.125s;
+			animation-delay: -.2s;
+}
+
+@-webkit-keyframes loading{
+	0%, 100%{
+		-webkit-transform: scale(1.0);
+	}
+	80%{
+		-webkit-transform: scale(0.0);
+	}
+}
+
+@keyframes loading{
+	0%, 100%{
+		-webkit-transform: scale(1.0);
+				transform: scale(1.0);
+	}
+	80%{
+		-webkit-transform: scale(0.0);
+				transform: scale(0.0);
+	}
+}
+
+
+@-webkit-keyframes textareaError{
+	0%, 100%{
+		background: #fff;
+	}
+	50%{
+		background: #FDEDED;
+	}
+}
+
+@keyframes textareaError{
+	0%, 100%{
+		background: #fff;
+	}
+	50%{
+		background: #FDEDED;
+	}
+}
+
+textarea.error{
+	-webkit-animation: textareaError 600ms 2;
+			animation: textareaError 600ms 2;
+}
+
+.leftin{
+	-webkit-transform: translateX(-110%);
+			transform: translateX(-110%);
+	-webkit-animation: leftIn 500ms ease-out forwards;
+			animation: leftIn 500ms ease-out forwards;
+}
+
+@keyframes leftIn{
+	from{
+		-webkit-transform: translateX(-110%);
+				transform: translateX(-110%);
+	}
+	to{
+		-webkit-transform: translateX(0%);
+				transform: translateX(0%);
+	}
+}
+
+@-webkit-keyframes leftIn{
+	from{
+		-webkit-transform: translateX(-110%);
+	}
+	to{
+		-webkit-transform: translateX(0%);
+	}
+}

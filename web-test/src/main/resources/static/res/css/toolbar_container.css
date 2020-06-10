@@ -1,0 +1,71 @@
+@charset "utf-8";
+.record-dialog .bootstrap-dialog-body .bootstrap-dialog-message{font-size:12px}
+.record-dialog .control-label{
+    padding-top: 7px;
+    padding-left:5px;
+    padding-right:5px;
+    margin-bottom: 0;
+}
+.record-dialog .wangEditor-container .wangEditor-txt p{
+    margin:0;
+}
+.record-dialog .modal-dialog{
+    width:1000px;
+
+}
+
+.record-dialog .modal-header{
+    padding:10px 15px;
+}
+.record-dialog .bootstrap-dialog-title{
+    font-size:14px;
+}
+.record-dialog .btn:not(.record-btn){
+    padding: 5px 10px;
+}
+.record-dialog .form-control{
+    padding: 5px 10px;
+    height:29px;
+}
+.record-dialog .panel-body{
+    padding:10px
+}
+
+.toolbar-container input,
+.tab-btn,
+.oper-btn,
+.toolbar-filter > .btn{
+    padding:5px 10px;
+}
+.bootstrap-select>.dropdown-toggle {
+    padding-right:25px;
+}
+
+.toolbar-container{
+    float:left;
+    margin-top:5px
+}
+.toolbar-container > .form-control{
+    display:inline;
+    width:100px;
+    height:31px;
+    margin-right:0px
+}
+
+.toolbar-text{
+    font-size:12px;
+    padding:7px 0px;
+    margin-left:6px;
+}
+
+.scroll-dialog .modal-body{
+    overflow-y: auto;
+    max-height: calc(100vh - 100px);
+}
+.scroll-dialog .modal-dialog{
+    height:80%;
+
+}
+.tab-btn{
+    float:right;
+}

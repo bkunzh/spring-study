@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>loading test</title>
+    <link href="/res/css/bootstrap.min.css?t=111" rel="stylesheet" type="text/css" />
+    <link href="/res/css/bootstrap-dialog.min.css?t=111" rel="stylesheet" type="text/css" />
+    <link href="/res/css/bootstrap-select.min.css?t=111" rel="stylesheet" type="text/css" />
+    <link href="/res/css/bootstrap-treeview.css" rel="stylesheet" type="text/css" />
+    <link href="/res/css/fileinput.css" rel="stylesheet" type="text/css" />
+    <link href="/res/css/default-fontsize.css" rel="stylesheet" type="text/css"/>  <!-- 修改字体 -->
+    <link href="/res/css/wangEditor.css" rel="stylesheet" type="text/css"/>
+    <link href="/res/css/bootstrap-table.css" rel="stylesheet" type="text/css"/>
+    <link href="/res/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/res/mycomponent/zoom/zoom.css" rel="stylesheet" type="text/css"/>
+
+    <script src="/res/js/jquery-1.10.2.min.js?t=111"></script>
+    <script src="/res/js/bootstrap.js?t=111"></script>   <!-- 调整了弹框位置 line 911 -->
+    <script src="/res/js/bootstrap-dialog.min.js?t=111"></script>
+    <script src="/res/js/bootstrap-select.min.js?t=111"></script>
+    <script src="/res/js/bootstrap-treeview.min.js?t=111"></script>
+    <script src="/res/js/fileinput.js"></script>
+    <script src="/res/js/locales/zh.js"></script>   <!-- fileinput中文化 -->
+    <script src="/res/js/wangEditor.js"></script>
+    <script src="/res/js/bootstrap-table.js"></script>
+    <script src="/res/js/locales/bootstrap-table-zh-CN.min.js"></script>
+    <script src="/res/js/ajaxfileupload.js"></script>
+    <script src="/res/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="<%=basePath%>/res/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+</head>
+<body>
+<!-- loading -->
+<div class="modal fade" style="z-index: 9999" id="loading" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop='static'>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">提示</h4>
+            </div>
+            <div class="modal-body">
+                请稍候，正在加载审批环节...<span id="result"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var buttons = [{
+        label: '同意',
+        cssClass: 'btn-primary',
+        onhide: function(dialogRef){},
+        action: function(dialogRef) {
+            BootstrapDialog.show({title:'操作提示',message:"yes"});
+        }
+    }];
+    buttons.push({
+        label: '不同意',
+        cssClass: 'btn',
+        onhide: function(dialogRef){},
+        action: function(dialogRef) {
+            BootstrapDialog.show({title:'操作提示',message:"no"});
+        }
+    });
+
+    BootstrapDialog.show({
+        title: '请审批',
+        message:function(dialog){
+            var $message = $('<div></div>');
+            var pageToLoad = dialog.getData('pageToLoad');
+            $message.load(pageToLoad, function () {
+                $('#loading').modal('hide');
+            });
+            return $message;
+        },
+        data:{'pageToLoad':"http://127.0.0.1:9998/delay/getData"},
+        buttons: buttons
+    });
+
+    //显示
+    $('#loading').modal('show');
+</script>
+</body>
+</html>
