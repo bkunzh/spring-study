@@ -1,5 +1,6 @@
 package com.bkunzhang.springboot.web;
 
+import com.alibaba.fastjson.JSON;
 import com.bkunzhang.springboot.util.CommonConstant;
 import com.bkunzhang.springboot.vo.Request;
 import com.bkunzhang.springboot.vo.RequestAndResponse;
@@ -48,5 +49,11 @@ public class HelloController {
         }
         Weather weather = new Weather(new Date(), "多云", 29.8);
         return new RequestAndResponse(new Request(headers, bodys), weather);
+    }
+
+    @CrossOrigin
+    @RequestMapping("/testCrossOrigin")
+    public String testCrossOrigin(@RequestBody Map<String, Object> map) {
+        return JSON.toJSONString(map);
     }
 }
