@@ -17,7 +17,8 @@
 <!--		<module>spring-security</module>-->
         <module>web-test</module>
 		<module>spring-framework</module>
-	</modules>
+		<module>springboot_download</module>
+    </modules>
 
 	<build>
 		<plugins>
