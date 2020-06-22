@@ -18,6 +18,7 @@
         <module>web-test</module>
 		<module>spring-framework</module>
 		<module>springboot_download</module>
+        <module>work-util-web</module>
     </modules>
 
 	<build>
