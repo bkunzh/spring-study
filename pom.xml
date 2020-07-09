@@ -21,6 +21,7 @@
         <module>work-util-web</module>
         <module>util</module>
         <module>springdata-mongodb</module>
+        <module>test</module>
     </modules>
 
 	<dependencies>
