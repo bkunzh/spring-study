@@ -16,8 +16,21 @@
 		<module>spring-boot/</module>
 <!--		<module>spring-security</module>-->
         <module>web-test</module>
+		<module>spring-framework</module>
 		<module>springboot_download</module>
+        <module>work-util-web</module>
+        <module>util</module>
+        <module>springdata-mongodb</module>
+        <module>test</module>
     </modules>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>

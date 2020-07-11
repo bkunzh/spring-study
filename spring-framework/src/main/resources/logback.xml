@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date [%thread] %logger{10}.%M \(%file:%line\) %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <root level="info">
+<!--        <appender-ref ref="FILE" />-->
+        <appender-ref ref="STDOUT" />
+    </root>
+
+</configuration>
