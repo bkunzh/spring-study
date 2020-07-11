@@ -21,9 +21,20 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter</artifactId>
+            <!-- spring-boot-starter 除了没有web，很多spring的功能都有了 -->
+<!--            <artifactId>spring-boot-starter-web</artifactId>-->
+        </dependency>
+
+        <!-- spring-boot-starter-web有 -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.10.4</version>
         </dependency>
     </dependencies>
+
+
 
     <build>
         <plugins>
