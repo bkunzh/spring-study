@@ -1,0 +1,8 @@
+<service>
+	<id>a_work-util-web</id>
+	<name>a_work-util-web</name>
+	<description>work-util-web service using winsw</description>
+	<executable>D:\soft\Java\jdk1.8.0_25\bin\java</executable>
+	<arguments>-Xmx256m -jar work-util-web-0.0.1-SNAPSHOT.jar</arguments>
+	<logmode>rotate</logmode>
+</service>

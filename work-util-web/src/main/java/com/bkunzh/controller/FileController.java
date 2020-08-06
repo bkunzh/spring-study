@@ -1,6 +1,8 @@
 package com.bkunzh.controller;
 
 import com.bkunzhang.util.FileUtil;
+import org.apache.poi.openxml4j.opc.OPCPackage;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -92,12 +94,25 @@ public class FileController {
                 }
                 File file = new File(fileDir, fileName);
                 if (file.exists()) {
-                    response.setContentType("application/force-download");// 设置强制下载不打开
-                    response.addHeader("Content-Disposition", "attachment;fileName=" + URLEncoder.encode(fileName, "UTF-8"));// 设置文件名
-                    byte[] buffer = new byte[1024];
                     FileInputStream fis = null;
                     BufferedInputStream bis = null;
                     try {
+                        if (fileName.endsWith(".doc")) {
+                            response.setContentType("application/msword");
+                        } else if (fileName.endsWith(".docx")) {
+                            // docx下载后，打开提示内容有问题，用poi的XWPFDocument解决，还是不行
+                            log.info(".docx");
+                            response.setContentType("application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+                            fis = new FileInputStream(file);
+                            XWPFDocument document = new XWPFDocument(OPCPackage.open(fis));
+                            document.write(response.getOutputStream());
+                            return "yes";
+                        }else {
+                            response.setContentType("application/octet-stream"); // 二进制，word如果设置这个会有问题
+                        }
+                        response.addHeader("Content-Disposition", "attachment;fileName=" + URLEncoder.encode(fileName, "UTF-8"));// 设置文件名
+                        byte[] buffer = new byte[1024];
+
                         fis = new FileInputStream(file);
                         bis = new BufferedInputStream(fis);
                         OutputStream os = response.getOutputStream();
@@ -119,6 +134,7 @@ public class FileController {
                         if (fis != null) {
                             try {
                                 fis.close();
+                                log.info("fis close");
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
