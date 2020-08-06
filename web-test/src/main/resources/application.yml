@@ -2,7 +2,10 @@ spring:
   profiles:
     active: dev
 
+
 server:
-  port: 9999
+  port: 80
+  servlet:
+    context-path: /pm
 
 
