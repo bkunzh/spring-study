@@ -20,6 +20,6 @@ public class DelayController {
     @GetMapping("/getData")
     public ReturnObject<?> getData() throws InterruptedException {
         Thread.sleep(3000);
-        return new ReturnObject<>(ReturnCode.C200, new String[] {"aa", "bb", "cc"}).msg("成功");
+        return ReturnObject.success(new String[] {"aa", "bb", "cc"}).msg("成功");
     }
 }

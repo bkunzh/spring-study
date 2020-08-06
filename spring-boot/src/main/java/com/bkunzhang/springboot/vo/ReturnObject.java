@@ -1,7 +1,5 @@
 package com.bkunzhang.springboot.vo;
 
-import com.alibaba.fastjson.JSON;
-
 /**
  * @author bingkun_zhang
  * @date 2020/6/9
@@ -13,8 +11,14 @@ public class ReturnObject<T> {
 
     @Override
     public String toString() {
-        return JSON.toJSONString(this);
+        return "ReturnObject{" +
+                "code=" + code +
+                ", msg='" + msg + '\'' +
+                ", data=" + data +
+                '}';
     }
+
+    public ReturnObject() {}
 
     public ReturnObject(ReturnCode returnCode, T data) {
         this.code = returnCode.getCode();
@@ -25,6 +29,10 @@ public class ReturnObject<T> {
     public ReturnObject(ReturnCode rc) {
         this.code = rc.getCode();
         this.msg = rc.getMessage();
+    }
+
+    public static ReturnObject success(Object data) {
+        return new ReturnObject(ReturnCode.C200, data);
     }
 
     public ReturnObject(int code, String msg) {
