@@ -1,4 +1,4 @@
-import com.bkunzh.webtest.controller.ReturnObject;
+import com.bkunzh.webtest.vo.ReturnObject;
 import org.junit.Test;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;

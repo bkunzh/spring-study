@@ -4,8 +4,8 @@ spring:
 
 
 server:
-  port: 80
-  servlet:
-    context-path: /pm
+          port: 9999
+#  servlet:
+#    context-path: /pm
 
 
