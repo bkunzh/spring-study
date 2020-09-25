@@ -11,7 +11,8 @@ public class UserService {
     public MyService myService;
 
     public UserService() {
-        // 构造函数中，myService还没有注入
+        // 构造函数中，myService还没有注入 unknown 有疑问
+        // https://blog.csdn.net/dongfengkuayue/article/details/50560188
         System.out.println("UserService myService=" + myService + ", this=" + this);
     }
     public void save(String name, Integer age) {
