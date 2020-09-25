@@ -9,7 +9,8 @@ import service.UserService;
 public class Hello {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
-        Object user = context.getBean(UserService.class);
-        System.out.println(user);
+        UserService userService = context.getBean(UserService.class);
+        System.out.println(userService);
+        System.out.println(userService.myService);
     }
 }

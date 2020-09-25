@@ -12,6 +12,7 @@
     <context:annotation-config/>
 
     <bean class="service.UserService"></bean>
+    <bean class="service.MyService"></bean>
     <bean class="service.AsyncService"></bean>
 
     <task:annotation-driven executor="myExecutor" scheduler="myScheduler" />
