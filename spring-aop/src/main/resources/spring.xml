@@ -9,5 +9,7 @@
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
         ">
     <context:component-scan base-package="com.bkunzh"/>
+    <!-- 有component-scan，不需要下面 -->
+<!--    <context:annotation-config/>-->
     <aop:aspectj-autoproxy/>
 </beans>

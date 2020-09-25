@@ -2,12 +2,24 @@ package com.bkunzh.springaop.service;
 
 import com.bkunzh.springaop.aspect.MyAnno;
 import com.bkunzh.springaop.aspect.MyAnno2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
+    @Autowired
+    public MyService myService;
+
+    public UserService() {
+        // 构造函数中，myService还没有注入
+        System.out.println("UserService myService=" + myService + ", this=" + this);
+    }
     public void save(String name, Integer age) {
         System.out.println("保存用户");
+    }
+
+    public MyService getMyService() {
+        return myService;
     }
 
     // final方法
