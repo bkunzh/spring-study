@@ -3,7 +3,7 @@ package com.bkunzh.springaop.service.testfinal;
 import org.springframework.stereotype.Service;
 
 @Service
-public class JDKService implements IJDKService {
+public final class JDKService implements IJDKService {
 
     @Override
     public final String say(String msg) {
