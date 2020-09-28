@@ -9,6 +9,8 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.util.Arrays;
+
 // cglib、jdk
 public class AopTest2 {
     static IJDKService ijdkService;
@@ -28,6 +30,8 @@ public class AopTest2 {
         System.out.println(ijdkService.getClass().getName() + ", " + cglibService.getClass().getName());
         System.out.println(ijdkService.getClass().getSuperclass().getName()); // java.lang.reflect.Proxy
         System.out.println(cglibService.getClass().getSuperclass().getName()); // com.bkunzh.springaop.service.testfinal.CglibService
+        System.out.println("##" + Arrays.toString(ijdkService.getClass().getInterfaces()));
+        System.out.println("##" + Arrays.toString(cglibService.getClass().getInterfaces()));
         System.out.println("jdk 代理:");
         System.out.println(ijdkService.say("1"));
         System.out.println("cglib代理:");
