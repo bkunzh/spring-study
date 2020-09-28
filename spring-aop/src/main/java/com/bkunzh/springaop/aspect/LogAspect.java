@@ -3,6 +3,7 @@ package com.bkunzh.springaop.aspect;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
 
 import java.io.PrintStream;
@@ -38,12 +39,13 @@ public class LogAspect {
 //        System.out.println("before2_2 " + name + ", " + age);
 //    }
 
-    @Pointcut("execution(public * com..*.UserService.*(..))")
+//    @Pointcut("execution(public * com..*.UserService.*(..))")
+    @Pointcut("execution(public * com..UserService.*(..))")
     public void userServiceAllMethodPoint() {}
 
     @Before("userServiceAllMethodPoint()")
     public void beforeAllMethod() {
-        System.out.println("beforeAll");
+        System.out.println("beforeAll11");
     }
 
     @AfterReturning(value = "execution(public * com..*.UserService.*(..))", returning = "rs")
@@ -65,17 +67,7 @@ public class LogAspect {
 
     @Around(value = "@annotation(com.bkunzh.springaop.aspect.MyAnno2)")
     public Object around(ProceedingJoinPoint pjp) {
-        System.out.println("args: " + Arrays.toString(pjp.getArgs()));
-
-        try {
-            Object rs = pjp.proceed();
-            System.out.println("rs:" + rs);
-            return rs;
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
-        }
-
-        return null;
+        return AspectUtil.doAround(pjp);
     }
 
 

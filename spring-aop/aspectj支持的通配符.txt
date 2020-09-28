@@ -1,0 +1,14 @@
+@AspectJ支持以下3种通配符。
+
+*: 匹配任意字符，但它只能匹配上下文中的一个元素。
+//匹配任何public 的方法，返回值，方法名，和参数都匹配任意。
+execution(public * *(..))
+//匹配所有以To结尾的方法
+execution(* *To(..))
+
+.. : 匹配任意字符，可以匹配上下文中的多个元素，但在表示类时，必须和*联合使用，在表示入参时则单独使用。
+@Around("execution(public * com..*Service.*(..))")
+
+//匹配com.smart包下，任何 TOTO
+within(com. smart. service..*.*Service+)
++：表示按类型匹配指定类的所有类，必须跟在类名后面，如com.smart.Car+。继承或扩展指定类的所有类，同时还包括指定类本身。

@@ -1,16 +1,15 @@
 package com.bkunzh.springaop;
 
 import com.bkunzh.springaop.config.AppConfig;
-import com.bkunzh.springaop.service.MyService;
 import com.bkunzh.springaop.service.UserService;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class AopTest {
     static UserService userService;
+
 
     //done spring 注解实例化容器，不用xml
     // https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans-java-instantiating-container
@@ -24,6 +23,7 @@ public class AopTest {
         // 由于aop，直接属性userService.myService=null , userService.getMyService()通过方法可以获取MyService@593aaf41
         System.out.println("context userService:" + userService + ", " + userService.myService
                 + ", " + userService.getMyService());
+
     }
 
     @Test
@@ -41,6 +41,12 @@ public class AopTest {
             System.out.println("error1");
         }
     }
+
+    @Test
+    public void objectFunc() {
+        System.out.println(userService.toString());
+    }
+
 
     @Test
     public void around() {
