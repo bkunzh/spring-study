@@ -9,7 +9,8 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class AopTest_final {
+// cglib、jdk
+public class AopTest2 {
     static IJDKService ijdkService;
     static CglibService cglibService;
 
@@ -24,6 +25,9 @@ public class AopTest_final {
     // cglib，基于继承实现，不会代理final方法；jdk由于是基于接口代理，可以代理final方法
     @Test
     public void finalMethodTest() {
+        System.out.println(ijdkService.getClass().getName() + ", " + cglibService.getClass().getName());
+        System.out.println(ijdkService.getClass().getSuperclass().getName()); // java.lang.reflect.Proxy
+        System.out.println(cglibService.getClass().getSuperclass().getName()); // com.bkunzh.springaop.service.testfinal.CglibService
         System.out.println("jdk 代理:");
         System.out.println(ijdkService.say("1"));
         System.out.println("cglib代理:");
