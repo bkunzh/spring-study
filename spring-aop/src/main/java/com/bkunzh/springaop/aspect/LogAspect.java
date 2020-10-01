@@ -48,15 +48,17 @@ public class LogAspect {
         System.out.println("beforeAll11");
     }
 
+    @After(value = "userServiceAllMethodPoint()")
+    public void after() {
+        System.out.println("after finally");
+    }
+
     @AfterReturning(value = "execution(public * com..*.UserService.*(..))", returning = "rs")
     public void afterReturning(Object rs) {
         System.out.println("afterReturning: " + rs);
     }
 
-    @After(value = "userServiceAllMethodPoint()")
-    public void after() {
-        System.out.println("after finally");
-    }
+
 
     @AfterThrowing(value = "@annotation(com.bkunzh.springaop.aspect.MyAnno)", throwing = "ex")
     public void afterThrowing(Exception ex) {
