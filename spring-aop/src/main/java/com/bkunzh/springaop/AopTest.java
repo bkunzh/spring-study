@@ -31,6 +31,9 @@ public class AopTest {
         userService.save("小明", 18);
         userService.save("小红", 17);
         userService.get(1);
+        System.out.println("----------get2------");
+        userService.get2(1);
+
     }
 
     @Test

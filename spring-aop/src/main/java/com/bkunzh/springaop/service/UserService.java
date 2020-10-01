@@ -30,6 +30,17 @@ public class UserService {
         return id;
     }
 
+    public int get2(int id) {
+        try {
+            System.out.println("get2()");
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            System.out.println("fin");
+        }
+        return id;
+    }
+
     @MyAnno
     public int ex() {
         int a = 0;
