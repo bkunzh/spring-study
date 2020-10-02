@@ -41,6 +41,14 @@ public class UserService {
         return id;
     }
 
+    // userService.getClass().getPackage().getName()为com.bkunzh.springaop.service，和UserService一个包，所以至少包权限，
+    // 才能被cglib生成的子类覆盖这个方法
+//    protected int get3(int id) {
+    int get3(int id) {
+        System.out.println("get3()");
+        return id;
+    }
+
     @MyAnno
     public int ex() {
         int a = 0;

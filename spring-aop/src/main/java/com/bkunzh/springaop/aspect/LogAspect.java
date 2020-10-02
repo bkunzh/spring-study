@@ -24,7 +24,9 @@ public class LogAspect {
     public void pointcut1(String name, Integer age) {}
 
 //    @Before("execution(public void com..*.UserService.*(..))")
-    @Before("execution(public * com..*.UserService.*(..))")
+//    @Before("execution(public * com..*.UserService.*(..))")
+    // 不要public修饰符默认所有
+    @Before("execution(* com..*.UserService.*(..))")
     public void before(JoinPoint joinPoint) {
         System.out.println(joinPoint.getTarget().getClass().getSimpleName() + " " + joinPoint.getSignature().getName()
                 + " before args: " + Arrays.toString(joinPoint.getArgs()));

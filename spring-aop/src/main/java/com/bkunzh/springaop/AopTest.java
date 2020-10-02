@@ -7,6 +7,9 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 public class AopTest {
     static UserService userService;
 
@@ -27,13 +30,16 @@ public class AopTest {
     }
 
     @Test
-    public void beforeAndAfter() {
+    public void beforeAndAfter() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         userService.save("小明", 18);
         userService.save("小红", 17);
         userService.get(1);
         System.out.println("----------get2------");
         userService.get2(1);
-
+        System.out.println("-----------reflect private get3----");
+        Method get3 = userService.getClass().getDeclaredMethod("get3", int.class);
+        get3.setAccessible(true);
+        get3.invoke(userService, 3);
     }
 
     @Test

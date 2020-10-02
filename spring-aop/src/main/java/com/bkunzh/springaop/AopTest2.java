@@ -1,7 +1,6 @@
 package com.bkunzh.springaop;
 
 import com.bkunzh.springaop.config.AppConfig;
-import com.bkunzh.springaop.service.UserService;
 import com.bkunzh.springaop.service.testfinal.CglibService;
 import com.bkunzh.springaop.service.testfinal.IJDKService;
 import org.junit.BeforeClass;
