@@ -22,7 +22,7 @@ public class MongoTest {
     public void mongoClientTest() {
         MongoClient mongoClient = MongoClients.create("mongodb://192.168.22.111:27017");
         MongoDatabase database = mongoClient.getDatabase("test_bk");
-//        MongoClient mongoClient = MongoClients.create("mongodb://test:kdzwytest@localhost/?authSource=finance&ssl=false");
+//        MongoClient mongoClient = MongoClients.create("mongodb://user1:pwd1@host1@localhost/?authSource=finance&ssl=false");
 //        MongoDatabase database = mongoClient.getDatabase("finance");
         MongoCollection<Document> collection = database.getCollection("log");
 //        Block<Document> printBlock = new Block<Document>() {
