@@ -1,14 +1,14 @@
 package com.bkunzh.springaop.aspect;
 
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
-import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
 
-import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.lang.reflect.Modifier;
 import java.util.Arrays;
 
 @Aspect
@@ -23,8 +23,11 @@ public class LogAspect {
     @Pointcut("execution(public void com..*.UserService.save(..)) && args(name,age)")
     public void pointcut1(String name, Integer age) {}
 
-    @Before("execution(public void com..*.UserService.save(..))")
-    public void before() {
+//    @Before("execution(public void com..*.UserService.*(..))")
+    @Before("execution(public * com..*.UserService.*(..))")
+    public void before(JoinPoint joinPoint) {
+        System.out.println(joinPoint.getTarget().getClass().getSimpleName() + " " + joinPoint.getSignature().getName()
+                + " before args: " + Arrays.toString(joinPoint.getArgs()));
         System.out.println("before1");
     }
 
@@ -49,7 +52,10 @@ public class LogAspect {
     }
 
     @After(value = "userServiceAllMethodPoint()")
-    public void after() {
+    public void after(JoinPoint joinPoint) {
+        System.out.println("jp: " + joinPoint.getTarget() + ", " + joinPoint.getSignature().getName() + ", "
+                + Modifier.toString(joinPoint.getSignature().getModifiers()) + ", "
+                + Arrays.toString(joinPoint.getArgs()));
         System.out.println("after finally");
     }
 
