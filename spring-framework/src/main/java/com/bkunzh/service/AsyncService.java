@@ -1,4 +1,4 @@
-package service;
+package com.bkunzh.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,7 +6,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.scheduling.annotation.Async;
-import util.ThreadUtil;
+import com.bkunzh.util.ThreadUtil;
 
 /**
  * @author bingkun_zhang
