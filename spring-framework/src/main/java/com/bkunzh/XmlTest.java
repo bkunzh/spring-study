@@ -19,8 +19,8 @@ public class XmlTest {
         System.out.println(userService);
         System.out.println(userService.myService);
 
-        // env profile 实现方式1
-        System.out.println("环境变量win_spring_env=" + context.getEnvironment().getProperty("win_spring_env"));
+        // env profile 实现方式1，在开发环境设置为dev，
+        System.out.println("环境变量spring_env=" + context.getEnvironment().getProperty("spring_env"));
         MyBean myBean = context.getBean("myBean", MyBean.class);
         System.out.println(JSON.toJSONString(myBean));
     }
