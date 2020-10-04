@@ -18,6 +18,7 @@ public class XmlTest {
         UserService userService = context.getBean(UserService.class);
         System.out.println(userService);
         System.out.println(userService.myService);
+        userService.myService.say();
 
         // env profile 实现方式1:在开发环境环境变量spring_env设置为dev，测试环境环境变量spring_env设置为test
         System.out.println("环境变量spring_env=" + context.getEnvironment().getProperty("spring_env"));

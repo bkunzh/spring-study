@@ -20,7 +20,7 @@
         <constructor-arg>
             <map>
                 <entry key="keya" value="aa"/>
-                <entry key="keyb" value="bb2"/>
+                <entry key="keyb" value="bb2${t.aa}"/>
             </map>
         </constructor-arg>
     </bean>

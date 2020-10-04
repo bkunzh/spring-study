@@ -10,7 +10,9 @@
         http://www.springframework.org/schema/task
         http://www.springframework.org/schema/task/spring-task-3.1.xsd">
     <import resource="spring-${spring_env}.xml"/>
-    
+
+    <context:property-placeholder location="classpath*:test1.properties"/>
+
     <context:annotation-config/>
 
     <bean id="aa" class="com.bkunzh.service.UserService"></bean>
