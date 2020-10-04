@@ -2,6 +2,7 @@ package com.bkunzh;
 
 import com.alibaba.fastjson.JSON;
 import com.bkunzh.config.AppConfig;
+import com.bkunzh.config.Config2;
 import com.bkunzh.config.UrlConfig;
 import com.bkunzh.service.MyService;
 import org.springframework.context.ApplicationContext;
@@ -16,5 +17,8 @@ public class ConfigTest {
         System.out.println(context.getBean("myStr2"));
         System.out.println(context.getBean("myStr"));
         System.out.println(context.getBean(MyService.class));
+        System.out.println(context.getBean(Config2.class));
+
+        System.out.println(context.getBean("tMap"));
     }
 }

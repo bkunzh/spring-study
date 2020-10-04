@@ -19,9 +19,12 @@ public class XmlTest {
         System.out.println(userService);
         System.out.println(userService.myService);
 
-        // env profile 实现方式1，在开发环境设置为dev，
+        // env profile 实现方式1:在开发环境环境变量spring_env设置为dev，测试环境环境变量spring_env设置为test
         System.out.println("环境变量spring_env=" + context.getEnvironment().getProperty("spring_env"));
         MyBean myBean = context.getBean("myBean", MyBean.class);
         System.out.println(JSON.toJSONString(myBean));
+
+        // 构造器声明map
+        System.out.println(JSON.toJSONString(context.getBean("mymap")));
     }
 }

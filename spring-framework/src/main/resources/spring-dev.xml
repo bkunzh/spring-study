@@ -14,4 +14,14 @@
             </util:map>
         </property>
     </bean>
+
+    <!-- 构造器声明map -->
+    <bean name="mymap" class="java.util.HashMap">
+        <constructor-arg>
+            <map>
+                <entry key="keya" value="aa"/>
+                <entry key="keyb" value="bb2"/>
+            </map>
+        </constructor-arg>
+    </bean>
 </beans>
