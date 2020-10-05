@@ -20,7 +20,8 @@ public class AppConfig {
         return tMap;
     }
 
-    @Profile("test")
+//    @Profile({"test", "prd"})
+    @Profile("!dev") // 非开发环境
     @Bean("myMap")
     public Map<String, Object> testMap() {
         Map<String, Object> tMap = new HashMap<>();
