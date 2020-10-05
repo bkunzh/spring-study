@@ -1,17 +1,6 @@
-package com.bkunzh.config;
-
-import org.springframework.context.annotation.*;
-
-import java.util.HashMap;
-import java.util.Map;
-
-@Configuration
-@ComponentScan(basePackages = "com.bkunzh")
-//@ImportResource("classpath:spring.xml")
-@PropertySource("classpath:test1.properties")
-@Import(Config2.class)
-public class AppConfig {
-
+## Spring Profile
+有些Bean不同环境希望不一样，可以增加@Profile("xx")指定这个Bean是在xx环境才会加载到spring容器，然后运行时指定jvm参数 -Dspring.profiles.active=dev
+```
     @Profile("dev")
     @Bean("myMap")
     public Map<String, Object> devMap() {
@@ -27,4 +16,4 @@ public class AppConfig {
         tMap.put("aa", "test");
         return tMap;
     }
-}
+```

@@ -10,10 +10,10 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 @Slf4j
 public class ConfigTest {
+    // 指定激活的环境，运行时增加jvm参数 -Dspring.profiles.active=dev
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
         log.info("" + JSON.toJSONString(context.getEnvironment().getActiveProfiles()));
-//        context.getEnvironment().setActiveProfiles("test");
         log.info("" + context.getBean(UrlConfig.class));
         log.info("" + context.getBean("myStr2"));
         log.info("" + context.getBean("myStr"));
@@ -25,6 +25,9 @@ public class ConfigTest {
         log.info("------------");
         MyService myService = context.getBean(MyService.class);
         myService.say();
+
+//        context.getEnvironment().setActiveProfiles("test"); // 这句没作用？？
+        log.info("profile: myMap={}", JSON.toJSONString(context.getBean("myMap")));
 
     }
 }
