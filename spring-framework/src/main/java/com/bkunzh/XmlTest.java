@@ -16,6 +16,7 @@ import java.util.Map;
 @Slf4j
 public class XmlTest {
     public static void main(String[] args) {
+        // 指定激活的环境，运行时增加jvm参数 -Dspring.profiles.active=dev
         ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
         UserService userService = context.getBean(UserService.class);
         log.info("" + userService);
@@ -29,5 +30,8 @@ public class XmlTest {
 
         // 构造器声明map
         log.info("" + JSON.toJSONString(context.getBean("mymap")));
+
+        // Profile使用
+        log.info("profile: myMap={}", JSON.toJSONString(context.getBean("myMap")));
     }
 }

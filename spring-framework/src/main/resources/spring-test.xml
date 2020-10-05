@@ -13,4 +13,13 @@
             </list>
         </property>
     </bean>
+
+    <!-- 构造器声明map -->
+    <bean name="mymap" class="java.util.HashMap">
+        <constructor-arg>
+            <map>
+                <entry key="keya" value="test11"/>
+            </map>
+        </constructor-arg>
+    </bean>
 </beans>
