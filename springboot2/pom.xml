@@ -2,12 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
+   <!-- <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.1.5.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
+        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;
+    </parent>-->
     <groupId>study</groupId>
     <artifactId>springboot2</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -15,7 +15,8 @@
     <description>spring2学习</description>
 
     <properties>
-        <java.version>1.8</java.version>
+        <spring.cloud-version>Hoxton.SR4</spring.cloud-version>
+        <spring.boot-version>2.2.5.RELEASE</spring.boot-version>
     </properties>
 
     <dependencies>
@@ -24,6 +25,12 @@
 <!--            <artifactId>spring-boot-starter</artifactId>-->
             <!-- spring-boot-starter 除了没有web，很多spring的功能都有了 -->
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- spring cloud config 客户端包 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
 
         <!-- spring-boot-starter-web有 -->
@@ -42,8 +49,37 @@
 
 
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud-version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot-version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.1</version>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                </configuration>
+            </plugin>
+            <!-- 生成spring-boot可执行jar包 -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
