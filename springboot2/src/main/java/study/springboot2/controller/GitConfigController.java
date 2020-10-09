@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class GitConfigController {
-    @Value("${data.env}")
+    @Value("${boot2.env}")
     private String env;
 
-    @Value("${data.user.username}")
-    private String username;
+    @Value("${boot2.name}")
+    private String name;
 
     @GetMapping("/testConfig")
     public String say() {
-        return env + " " + username;
+        return env + " " + name;
     }
 }

@@ -5,7 +5,7 @@ spring:
 spring:
   profiles: prod
   application:
-    name: config-single-client
+    name: springboot2
   cloud:
     config:
       uri: http://localhost:3301
@@ -16,7 +16,7 @@ spring:
 spring:
   profiles: dev
   application:
-    name: config-single-client
+    name: springboot2
   cloud:
     config:
       uri: http://localhost:3301
