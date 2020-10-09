@@ -1,6 +1,8 @@
 spring:
   profiles:
     active: dev
+
+# YAML 文件可以由一或多个文档组成（也即相对独立的组织结构组成），文档间使用“---”（三个横线）在每文档开始作为分隔符.
 ---
 spring:
   profiles: prod
